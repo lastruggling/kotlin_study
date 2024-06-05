@@ -31,19 +31,19 @@ OracleがJavaの著作権でやらかしてから作った説が強い。
 でもIntelliJは高いし、買えないとしてもいろんな環境はある。
 
 ## JetBrains Fleet
-[https://www.jetbrains.com/fleet/](JetBrain Fleet)たるのがあるらしい。
+[JetBrain Fleet](https://www.jetbrains.com/fleet/)たるのがあるらしい。
 
 Free for Previewだから有料になるかわからないけど、
 
 おそらくVSCodeみたいに無料版とかになるんじゃない？
 
 ## Android Studio
-[https://developer.android.com/](Android Studio)はGoogleが無料で配ってるらしいね
+[Android Studio](https://developer.android.com/)はGoogleが無料で配ってるらしいね
 
 アプリ開発好きじゃなく経験ないから、経験者ならこれ使っていいよ
 
 ## Eclipse
-[https://marketplace.eclipse.org/content/kotlin-plugin-eclipse](Eclipse Kotlin Plugin)
+[Eclipse Kotlin Plugin](https://marketplace.eclipse.org/content/kotlin-plugin-eclipse)
 
 Java勉強するものなら幼馴染のやつ。
 
@@ -52,14 +52,14 @@ Java勉強するものなら幼馴染のやつ。
 これなら無料だから全然いいと思う。
 
 ## IntelliJ
-[https://www.jetbrains.com/idea/](IntelliJ)
+[IntelliJ](https://www.jetbrains.com/idea/)
 
 Kotlin関係なく、IDEそのものとしても神
 
 有料で、ちょい高めだけどLicenseを年年間も続けたら、向こうに「ちょっと安くしてよー」とか交渉もできる。
 
 ## Kotlin-playground
-[https://play.kotlinlang.org/](Kotlin-playground)
+[Kotlin-playground](https://play.kotlinlang.org/)
 
 そもそも、「JavaこれはKotlinだとこんなのできるよ」的に勧めたいから
 
@@ -68,15 +68,19 @@ Kotlin関係なく、IDEそのものとしても神
 Compilerとか入れたくないし、お金も払いたくないし
 
 ## その他
-[https://kotlinlang.org/docs/kotlin-ide.html](Kotlin IDEs)
+[Kotlin IDEs](https://kotlinlang.org/docs/kotlin-ide.html)
 
 Kotlin自体でもIDEから話してるから、多分必須不可な感じかな？
 
 一応MacOS, Linux, WindowsそれぞれのCompilerは整えてるから一読して
 
+Linuxで確認したけど(WSL2、Rocky Linux9) JavaがインストールされてないとCompileできない。
+
+なぜか？は宿題として残す。
+
 # 結論と考察
-<i>一応MacOS, Linux, WindowsそれぞれのCompilerは整えてるから一読して</i>
+*一応MacOS, Linux, WindowsそれぞれのCompilerは整えてるから一読して*
 
 この発言、賢いやつは「KotlinはCompileする言語だねー」と気付いたはず。
 
-あと、基本的な文法の場合は[https://play.kotlinlang.org/](Playground)でやることで。
+あと、基本的な文法の場合は[Playground](https://play.kotlinlang.org/)でやることで。
