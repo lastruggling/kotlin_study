@@ -54,7 +54,7 @@ println(baka)
 // [Harada, Yuuki, ManaminoDanna, Koo]
 ```
 
-### What the Fxxk is MutableList?
+### Mutable?
 Basic Syntax Part 1で話したけど、最新の言語のトレンドかはわからないが
 
 「基本的に、変数は可変にしないように」の考え方が多いよね。
@@ -63,16 +63,16 @@ Basic Syntax Part 1で話したけど、最新の言語のトレンドかはわ�
 
 ### 通常のList
 ```kotlin
-var hueruBaka = mutableListOf("Harada", "Yuuki", "ManaminoDanna")
-var huenaiBaka = listOf("Harada", "Yuuki", "ManaminoDanna")
+var hueruBaka = mutableListOf("マツケン", "ゆうき", "くー")
+var huenaiBaka = listOf("マツケン", "ゆうき", "くー")
 
 println(hueruBaka)
 println(huenaiBaka)
 
-hueruBaka.add("Koo")
+hueruBaka.add("じゅんじ")
 
 // Compile error here
-// huenaiBaka.add("Koo")
+// huenaiBaka.add("じゅんじ")
 println(hueruBaka)
 ```
 [Playground](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4wLjAiLCJwbGF0Zm9ybSI6ImphdmEiLCJhcmdzIjoiIiwibm9uZU1hcmtlcnMiOnRydWUsInRoZW1lIjoiaWRlYSIsImNvZGUiOiIvKipcbiAqIFlvdSBjYW4gZWRpdCwgcnVuLCBhbmQgc2hhcmUgdGhpcyBjb2RlLlxuICogcGxheS5rb3RsaW5sYW5nLm9yZ1xuICovXG5mdW4gbWFpbigpIHtcbiAgICB2YXIgaHVlcnVCYWthID0gbXV0YWJsZUxpc3RPZihcIkhhcmFkYVwiLCBcIll1dWtpXCIsIFwiTWFuYW1pbm9EYW5uYVwiKVxuICAgIHZhciBodWVuYWlCYWthID0gbGlzdE9mKFwiSGFyYWRhXCIsIFwiWXV1a2lcIiwgXCJNYW5hbWlub0Rhbm5hXCIpXG5cbiAgICBwcmludGxuKGh1ZXJ1QmFrYSlcbiAgICBwcmludGxuKGh1ZW5haUJha2EpXG5cbiAgICBodWVydUJha2EuYWRkKFwiS29vXCIpXG4gICAgaHVlbmFpQmFrYS5hZGQoXCJLb29cIilcblx0cHJpbnRsbihodWVydUJha2EpXG59In0=)で見たら
@@ -91,36 +91,54 @@ KotlinのCollectionの定義を見ると
 そもそも最初から「可変のList」と、「固定List」が分かれて、Listならadd()自体がないのが分かるよね。
 
 ## Set
-数学に興味があれば一発でぐっと来るけど、そんな変態俺しかないよね
-
-**Set stores unique elements** 
-
-公式文書で、こう話してる。
+重複した要素をがないリストのことね。
 
 ```kotlin
 fun main() {
-	val baka = setOf("Matsuken", "Yuuki", "Koo", "Katano", "Katano", "Katano", "Katano")
+	val baka = setOf("マツケン", "ゆうき", "くー", "こうき", "じゅんじ", "じゅんじ", "じゅんじ")
     println(baka)
 }
 
 // 出力
-// [Matsuken, Yuuki, Koo, Katano]
+// [マツケン, ゆうき, くー, こうき, じゅんじ]
 ```
 
 説明どおり、重複してるのは1個にしとく感じだよね。
 
-重目すべきなのは、「重複要素を入れても、エラーとかにはならない」ことね。
+大事なのは、「**重複要素を入れても、エラーとかにはならない**」ことね。
 
-実務では、定義してる対象をリストアップして、重複したらまずいとき
+実務では、定義してる対象をリストアップして、重複しちゃっても構わない場合
 
 Setにしちゃえばバグらないことだよね。
 
 ### 宿題
-事例では、Katanoさんがどんだけ馬鹿でも1回だけ馬鹿として格納されるね(やさしいね～)。
+事例では、じゅんじが3回馬鹿リストに入っても1回だけ格納されるね(やさしいね～)。
 
 でも、Setの中身がClassでもちゃんと比較してくれるかな？
 
-[Hint](https://play.kotlinlang.org/#eyJ2ZXJzaW9uIjoiMi4wLjAiLCJwbGF0Zm9ybSI6ImphdmEiLCJhcmdzIjoiIiwibm9uZU1hcmtlcnMiOnRydWUsInRoZW1lIjoiaWRlYSIsImNvZGUiOiIvKipcbiAqIFlvdSBjYW4gZWRpdCwgcnVuLCBhbmQgc2hhcmUgdGhpcyBjb2RlLlxuICogcGxheS5rb3RsaW5sYW5nLm9yZ1xuICovXG5mdW4gbWFpbigpIHtcblx0dmFsIGJha2EgPSBzZXRPZihCYWthKFwiTWF0c3VrZW5cIiksIEJha2EoXCJZdXVraVwiKSwgQmFrYShcIktvb1wiKSwgQmFrYShcIkthdGFub1wiKSwgXG4gICAgICAgICAgICAgICAgICAgICBCYWthKFwiS2F0YW5vXCIpLCBCYWthKFwiS2F0YW5vXCIpLCBCYWthKFwiS2F0YW5vXCIpKVxuICAgIGJha2EuZm9yRWFjaHtcbiAgICAgICAgcHJpbnRsbihpdClcbiAgICB9XG59XG5cbmNsYXNzIEJha2EodmFsIG5hbWU6IFN0cmluZykge1xuICAgIG92ZXJyaWRlIGZ1biB0b1N0cmluZygpOiBTdHJpbmcge1xuICAgICAgICByZXR1cm4gbmFtZVxuICAgIH1cbn0ifQ==)
+```kotlin
+fun main() {
+    val baka = setOf(
+        Baka("マツケン"),
+        Baka("ゆうき"),
+        Baka("くー"),
+        Baka("こうき"),
+        Baka("じゅんじ"),
+        Baka("じゅんじ"),
+        Baka("じゅんじ")
+    )
+
+    baka.forEach{
+        println(it)
+    }
+}
+
+class Baka(val name: String) {
+    override fun toString(): String {
+        return name
+    }
+}
+```
 
 ## Map
 Collectionクラスを継承してるわけではないやつだけど、
@@ -134,27 +152,28 @@ JavaのHashMapみたいな感じかな？
 ```kotlin
 fun main() {
     val baka: Map<String, String> = mapOf(
-        "matuken" to "社長",
-        "koo" to "ちょん",
-        "yuuki" to "やりちん",
-        "junji" to "無職"
+        "マツケン" to "会長",
+        "ゆうき" to "新婚",
+        "じゅんじ" to "既婚",
+        "くー" to "独居老人"
     )
 
     baka.forEach { (k, v) ->
-        println("だまれ、${v}")
+        println("${v}の${k}")
     }
 }
 
-// 出力
-// だまれ、社長
-// だまれ、ちょん
-// だまれ、やりちん
-// だまれ、無職
+/* 出力
+会長のマツケン
+新婚のゆうき
+既婚のじゅんじ
+独居老人のくー
+*/
 ```
 
 # で、言いたいのは？
 ## mutable云々
-Basic Syntax Part 1で、「var」「val」で**この変数、帰れるの？**が決められるってことあったよね。
+Basic Syntax Part 1で、「var」「val」で**この変数、変える？**が決められるってことあったよね。
 
 Listだけではなく、他のCollectionでも「mutable云々」があるし、
 
@@ -181,15 +200,15 @@ Collection自体のMutabilityと、変数の可変性はどうなるかな？
 結果をみてみんなで議論しようか？
 
 ```kotlin
-    var hueruBakaVar = mutableListOf("Harada", "Yuuki", "ManaminoDanna")
-    var huenaiBakaVar = listOf("Harada", "Yuuki", "ManaminoDanna")
-    val hueruBakaVal = mutableListOf("Harada", "Yuuki", "ManaminoDanna")
-    val huenaiBakaVal = listOf("Harada", "Yuuki", "ManaminoDanna")
+    var hueruBakaVar = mutableListOf("マツケン", "ゆうき", "くー")
+    var huenaiBakaVar = listOf("マツケン", "ゆうき", "くー")
+    val hueruBakaVal = mutableListOf("マツケン", "ゆうき", "くー")
+    val huenaiBakaVal = listOf("マツケン", "ゆうき", "くー")
     
-    hueruBakaVar.add("Matsuken")
-    huenaiBakaVar.add("Matsuken")
-    hueruBakaVal.add("Matsuken")
-    huenaiBakaVal.add("Matsuken")
+    hueruBakaVar.add("こうき")
+    huenaiBakaVar.add("こうき")
+    hueruBakaVal.add("こうき")
+    huenaiBakaVal.add("こうき")
     
     println(hueruBakaVar)
     println(huenaiBakaVar)
@@ -207,24 +226,20 @@ Setのこのコードで
 ```kotlin
 fun main() {
     val baka: Map<String, String> = mapOf(
-        "matuken" to "社長",
-        "koo" to "ちょん",
-        "yuuki" to "やりちん",
-        "junji" to "無職"
+        "マツケン" to "会長",
+        "ゆうき" to "新婚",
+        "じゅんじ" to "既婚",
+        "くー" to "独居老人"
     )
 
     baka.forEach { (k, v) ->
-        println("だまれ、${v}")
+        println("${v}の${k}")
     }
 }
 ```
 
 forEachってなんだろ？と考えてみよ。
 
-あと、「だまれ」なんかはじゅんじ以外には言わないようにして見ましょう
+あと、独居老人は可哀想だから出力しないようにするならどうすればいいかな？
 
-俺の頭の中で5つぐらい方法浮かんでるから、
-
-実装面で質問あれば聞いて(どうせ誰も読まないから、俺の頭の中のケースが増えるだけでしょう)
-
-Hint : if(k), Interface, Abstract class
+Hint : if, Interface, Abstract class
