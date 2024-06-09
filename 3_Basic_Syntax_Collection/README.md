@@ -29,14 +29,14 @@ immutable, mutableの概念ができて、Java経験者からは違和感を感�
 Javaではこれで行けたと思うね
 
 ```java
-List<String> baka = new ArrayList<>(Arrays.asList("Harada", "Yuuki", "ManaminoDanna"));
+List<String> baka = new ArrayList<>(Arrays.asList("マツケン", "ゆうき", "くー"));
 System.out.println(baka);
-baka.add("Koo");
+baka.add("じゅんじ");
 System.out.println(baka);
 
 // 出力
-// [Harada, Yuuki, ManaminoDanna]
-// [Harada, Yuuki, ManaminoDanna, Koo]
+// [マツケン, ゆうき, くー]
+// [マツケン, ゆうき, くー, じゅんじ]
 ```
 
 Javaの場合、ListはInterfaceらしく、そのタイプ自体ではなく、
@@ -46,12 +46,12 @@ ArrayList, LinkedList, Vectorしかできないらしいね。めんど！
 KotlinはListのままで使えるよ～
 
 ```kotlin
-var baka = mutableListOf("Harada", "Yuuki", "ManaminoDanna")
-baka.add("Koo")
+var baka = mutableListOf("マツケン", "ゆうき", "くー")
+baka.add("じゅんじ")
 println(baka)
 
 // 出力
-// [Harada, Yuuki, ManaminoDanna, Koo]
+// [マツケン, ゆうき, くー, じゅんじ]
 ```
 
 ### Mutable?
